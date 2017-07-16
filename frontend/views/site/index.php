@@ -1,17 +1,30 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model \frontend\entities\Engine\SearchForm */
+
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Movie title</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">Enter the movie title.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p>
+            <?php $form = ActiveForm::begin(['id' => 'downloadSourceCode']); ?>
+            
+            <?= $form->field($model, 'description')->textarea(['rows' => '6']) ?>
+            
+            <?= Html::submitButton('Submit') ?>
+            
+            <?php ActiveForm::end(); ?>
+        </p>
     </div>
 
     <div class="body-content">
