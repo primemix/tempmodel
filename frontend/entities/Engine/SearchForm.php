@@ -27,6 +27,6 @@ class SearchForm extends Model
         $result = $request->getRequest($this->textArea);
 
         echo '<pre>';
-        var_dump($result);die;
+        print_r($result);die;
     }
 }
