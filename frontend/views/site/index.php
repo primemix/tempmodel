@@ -18,11 +18,12 @@ $this->title = 'My Yii Application';
 
         <p>
             <?php $form = ActiveForm::begin([
+                'action' => 'site/search-result',
                 'id' => 'search--form',
                 'options' => ['class' => 'form-horizontal','style' => 'width:280px']
             ]); ?>
             
-            <?= $form->field($model, 'textArea')->textarea([
+            <?= $form->field($model, 'textArea', ['inputOptions'=>['autofocus'=>'autofocus']])->textarea([
                 'maxlength' => 5000,
                 'rows' => 10,
                 'cols' => 3,

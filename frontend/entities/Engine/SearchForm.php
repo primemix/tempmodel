@@ -22,7 +22,7 @@ class SearchForm extends Model
     public function rules()
     {
         return [
-            [['textArea'], 'required'],
+            [['textArea'], 'required', 'message' => 'Movie title area cannot be blank'],
         ];
     }
 
@@ -34,8 +34,7 @@ class SearchForm extends Model
         if(!$this->validate()) {
             return NULL;
         }
-
-//        var_dump($this->textArea);die;
+        
         $request = new Request();
         $result = $request->getRequest($this->textArea);
 
