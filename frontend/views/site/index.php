@@ -19,12 +19,19 @@ $this->title = 'My Yii Application';
         <p>
             <?php $form = ActiveForm::begin([
                 'id' => 'search--form',
-                'options' => ['class' => 'form-horizontal'],
+                'options' => ['class' => 'form-horizontal','style' => 'width:280px']
             ]); ?>
             
-            <?= $form->field($model, 'textArea')->textarea(['rows' => '6'])->label(false) ?>
+            <?= $form->field($model, 'textArea')->textarea([
+                'maxlength' => 5000,
+                'rows' => 10,
+                'cols' => 3,
+                'placeholder'=>'Terminator'.PHP_EOL.
+                                            'Snatch'.PHP_EOL.
+                                            'Thor: Ragnarok'.PHP_EOL.
+                                            'Others titles.........'])->label(false) ?>
             
-            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+            <?= Html::submitButton('-> find & subscribe', ['class' => 'btn btn-primary']) ?>
             
             <?php ActiveForm::end(); ?>
         </p>

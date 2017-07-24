@@ -77,7 +77,7 @@ class SiteController extends Controller
         $model = new SearchForm();
         if($model->load(Yii::$app->request->post())) {
             if($searchResult = $model->searchResult()) {
-
+                return $this->redirect(['site/search-result']);
             }
         }
         return $this->render('index', [
@@ -222,12 +222,8 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionList()
+    public function actionSearchResult()
     {
-        $text = "Hello you";
-        $model = new TestClass($text);
-        echo '<pre>';
-
-        var_dump($model);die;
+        return $this->render('searchResult');
     }
 }
