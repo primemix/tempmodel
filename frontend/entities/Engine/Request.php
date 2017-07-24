@@ -2,13 +2,13 @@
 
 namespace frontend\entities\Engine;
 
-use frontend\entities\Interfaces\InterfacesSearchProvider;
+use frontend\entities\Interfaces\InterfaceSearchProvider;
 
 /**
  * Class Request
  * @package entities\Engine
  */
-class Request implements InterfacesSearchProvider
+class Request implements InterfaceSearchProvider
 {
     /**
      * @var array

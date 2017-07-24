@@ -3,6 +3,7 @@
 namespace frontend\entities\Engine;
 
 use yii\base\Model;
+use frontend\entities;
 
 class SearchForm extends Model
 {
@@ -21,6 +22,11 @@ class SearchForm extends Model
             return NULL;
         }
 
-        var_dump($this->textArea);die;
+//        var_dump($this->textArea);die;
+        $request = new Request();
+        $result = $request->getRequest($this->textArea);
+
+        echo '<pre>';
+        var_dump($result);die;
     }
 }
