@@ -2,13 +2,13 @@
 
 namespace frontend\entities\Engine;
 
-use frontend\entities\Interfaces\InterfacesSearchProvider;
+use frontend\entities\Interfaces\InterfaceSearchProvider;
 
 /**
  * Class Request
  * @package entities\Engine
  */
-class Request implements InterfacesSearchProvider
+class Request implements InterfaceSearchProvider
 {
     /**
      * @var array
@@ -21,6 +21,19 @@ class Request implements InterfacesSearchProvider
      */
     public function getRequest($textArea)
     {
-        return $this->data = explode(PHP_EOL, $textArea);
+        $this->data = explode(PHP_EOL, $textArea);
+
+        foreach ($this->data as $item => $value) {
+            trim($value);
+            $new[$item] = $value;
+        }
+        $new_array = array_diff($new, array(0,'', NULL, false));
+//        foreach ($this->data as $item => $value) {
+//            if($value == "") {
+//                unset $value;
+//            }
+//        }
+
+        return $new_array;
     }
 }

@@ -6,7 +6,7 @@ namespace frontend\entities\Interfaces;
  * Interface InterfacesSearchProvider
  * @package entities
  */
-interface InterfacesSearchProvider
+interface InterfaceSearchProvider
 {
     /**
      * @return mixed

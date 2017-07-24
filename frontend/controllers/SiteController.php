@@ -1,7 +1,6 @@
 <?php
 namespace frontend\controllers;
 
-
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -14,6 +13,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\entities\Engine\SearchForm;
+use frontend\models\TestClass;
 /**
  * Site controller
  */
@@ -75,6 +75,11 @@ class SiteController extends Controller
     {
 //        return $this->render('index');
         $model = new SearchForm();
+        if($model->load(Yii::$app->request->post())) {
+            if($searchResult = $model->searchResult()) {
+
+            }
+        }
         return $this->render('index', [
             'model' => $model,
         ]);
@@ -215,5 +220,14 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    public function actionList()
+    {
+        $text = "Hello you";
+        $model = new TestClass($text);
+        echo '<pre>';
+
+        var_dump($model);die;
     }
 }
