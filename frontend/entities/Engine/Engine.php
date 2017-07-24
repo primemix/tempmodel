@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\entities\Engine;
+use Prophecy\Exception\Doubler\InterfaceNotFoundException;
 
 /**
  * Class Engine
@@ -12,6 +13,8 @@ class Engine
      * @var InerfaceSearchProvider
      */
     protected $requestProvider;
+
+    protected $list;
 
     /**
      * Engine constructor.

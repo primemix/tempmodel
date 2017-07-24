@@ -17,11 +17,14 @@ $this->title = 'My Yii Application';
         <p class="lead">Enter the movie title.</p>
 
         <p>
-            <?php $form = ActiveForm::begin(['id' => 'downloadSourceCode']); ?>
+            <?php $form = ActiveForm::begin([
+                'id' => 'search--form',
+                'options' => ['class' => 'form-horizontal'],
+            ]); ?>
             
-            <?= $form->field($model, 'description')->textarea(['rows' => '6']) ?>
+            <?= $form->field($model, 'textArea')->textarea(['rows' => '6'])->label(false) ?>
             
-            <?= Html::submitButton('Submit') ?>
+            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
             
             <?php ActiveForm::end(); ?>
         </p>

@@ -6,12 +6,21 @@ use yii\base\Model;
 
 class SearchForm extends Model
 {
-    public $description;
+    public $textArea;
 
     public function rules()
     {
         return [
-            [['description'], 'required'],
+            [['textArea'], 'required'],
         ];
+    }
+
+    public function searchResult()
+    {
+        if(!$this->validate()) {
+            return NULL;
+        }
+
+        var_dump($this->textArea);die;
     }
 }
