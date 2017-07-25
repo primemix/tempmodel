@@ -1,17 +1,32 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
 
 use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
 
 $this->title = 'Search Result';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-
-    <code><?= __FILE__ ?></code>
+    <h2><?= Html::encode($this->title) ?></h2>
+    <p>
+        <?php $form = ActiveForm::begin([
+            'action' => 'site/search-result',
+            'id' => 'search--form',
+            'options' => ['class' => 'form-horizontal','style' => 'width:280px']
+        ]);
+$items=[
+    '0' => 'Quality 1080p',
+    '1' => 'Quality < 1080p',
+    '2'=>'Quality > 1080p'
+];
+        ?>
+        <?php foreach($model as $movie){
+            echo $movie .' ' . Html::dropDownList('cat', 'null', $items).'<br><br>';
+        }?>
+        <?php ActiveForm::end(); ?>
+    </p>
 </div>
