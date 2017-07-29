@@ -23,8 +23,9 @@ $items=[
     '1' => 'Quality < 1080p',
     '2'=>'Quality > 1080p'
 ];
-        ?>
-        <?php foreach($model as $movie){
+
+         foreach($model as $index => $movie){
+//            echo $form->field($movie, "[$index]value");
             echo $movie .' ' . Html::dropDownList('cat', 'null', $items).'<br><br>';
         }?>
         <?php ActiveForm::end(); ?>

@@ -1,7 +1,8 @@
 <?php
 
 namespace frontend\entities\Engine;
-use Prophecy\Exception\Doubler\InterfaceNotFoundException;
+
+use frontend\entities\Interfaces\InterfaceSearchProvider;
 
 /**
  * Class Engine
@@ -10,7 +11,7 @@ use Prophecy\Exception\Doubler\InterfaceNotFoundException;
 class Engine
 {
     /**
-     * @var InerfaceSearchProvider
+     * @var InterfaceSearchProvider
      */
     protected $requestProvider;
 
@@ -18,9 +19,9 @@ class Engine
 
     /**
      * Engine constructor.
-     * @param InerfaceSearchProvider $requestProvider
+     * @param InterfaceSearchProvider $requestProvider
      */
-    public function __construct(InerfaceSearchProvider $requestProvider)
+    public function __construct(InterfaceSearchProvider $requestProvider)
     {
         $this->requestProvider = $requestProvider;
     }
