@@ -13,7 +13,17 @@ class Request implements InterfaceSearchProvider
     /**
      * @var array
      */
-    protected $data = array();
+    protected $old_array = array();
+
+    /**
+     * @var array
+     */
+    protected $new_array = array();
+
+    /**
+     * @var array
+     */
+    protected $temp = array();
 
     /**
      * @param $textArea
@@ -21,14 +31,14 @@ class Request implements InterfaceSearchProvider
      */
     public function getRequest($textArea)
     {
-        $this->data = explode(PHP_EOL, $textArea);
+        $this->old_array = explode(PHP_EOL, $textArea);
 
-        foreach ($this->data as $item => $value) {
-            $a = trim($value);
-            $new[$item] = $a;
+        foreach ($this->old_array as $item => $value) {
+            $value = trim($value);
+            $this->temp[$item] = $value;
         }
-        $new_array = array_diff($new, array(0,'', NULL, false));
-        
-        return $new_array;
+        $this->new_array = array_diff($this->temp, array(0,'', NULL, false));
+
+        return $this->new_array;
     }
 }
