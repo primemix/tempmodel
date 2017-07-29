@@ -14,8 +14,15 @@ class Request implements InterfaceSearchProvider
      * @var array
      */
     protected $old_array = array();
+
+    /**
+     * @var array
+     */
     protected $new_array = array();
 
+    /**
+     * @var array
+     */
     protected $temp = array();
 
     /**
@@ -27,8 +34,8 @@ class Request implements InterfaceSearchProvider
         $this->old_array = explode(PHP_EOL, $textArea);
 
         foreach ($this->old_array as $item => $value) {
-            $a = trim($value);
-            $this->temp[$item] = $a;
+            $value = trim($value);
+            $this->temp[$item] = $value;
         }
         $this->new_array = array_diff($this->temp, array(0,'', NULL, false));
 
