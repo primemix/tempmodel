@@ -222,7 +222,6 @@ class SiteController extends Controller
 
     public function actionSearchResult()
     {
-        $a = 'adfs';
         $model = new SearchForm();
         if($model->load(Yii::$app->request->post()) && $model->searchResult()) {
             return $this->render('searchResult', [

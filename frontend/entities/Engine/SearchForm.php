@@ -2,8 +2,9 @@
 
 namespace frontend\entities\Engine;
 
+use Yii;
 use yii\base\Model;
-use frontend\entities;
+use frontend\entities\Interfaces;
 
 /**
  * Class SearchForm
@@ -16,6 +17,9 @@ class SearchForm extends Model
      */
     public $textArea;
 
+
+
+
     /**
      * @return array
      */
@@ -26,17 +30,14 @@ class SearchForm extends Model
         ];
     }
 
-    /**
-     * @return null
-     */
     public function searchResult()
     {
         if(!$this->validate()) {
             return NULL;
         }
         
-        $request = new Request();
-        $result = $request->getRequest($this->textArea);
+        $request = new Engine(new Request());
+        $result = $request->Request($this->textArea);
 
         return $result;
     }
