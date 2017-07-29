@@ -35,11 +35,7 @@ class SearchForm extends Model
         if(!$this->validate()) {
             return NULL;
         }
-<<<<<<< HEAD
-        
-=======
 
->>>>>>> origin/dev
         $request = new Engine(new Request());
         $result = $request->Request($this->textArea);
 
